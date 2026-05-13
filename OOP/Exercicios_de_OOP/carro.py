@@ -41,7 +41,7 @@ class Transmissao:
 
         self.n_de_marchas = n_de_marchas
 
-        self.marcha = n_de_marchas[0]
+        self.marcha_atual = n_de_marchas[0]
 
     def mudar_marcha(self):
         while True:
@@ -87,7 +87,7 @@ class Carro(Motor, Transmissao, Chassi):
     def __init__(self, motor:Motor, transmissao:Transmissao, rodas:list[Roda], chassi:Chassi):
         self.motor = motor
         self.transmissao = transmissao
-        self.roda = rodas
+        self.rodas = rodas
         self.chassi = chassi
 
     def informacoes_do_carro(self):
@@ -107,11 +107,11 @@ class Carro(Motor, Transmissao, Chassi):
 
             for roda in self.rodas:
                 print(f"ARO: {roda.aro}\n"
-                      f"PRESSAO: {roda.presao}\n")
+                      f"PRESSAO: {roda.pressao}\n")
 
 lista_de_marchas = ["1", "2", "3", "4", "5", "R"]
 
-motor = Motor("energia", 50, 500)
+motor = Motor("eletrico", 50, 500)
 transmissao = Transmissao("manual", lista_de_marchas)
 roda1 = Roda(16, 30)
 roda2 = Roda(16, 30)
@@ -123,21 +123,21 @@ chassi = Chassi("Vermelho", "SUV")
 carro = Carro(motor, transmissao, lista_de_rodas, chassi)
 
 # Testes do motor
-carro.ligar()
-print(carro.estado)
-carro.desligar()
-print(carro.estado)
-carro.acelerar()
-print(carro.velocidade)
-carro.verificar_combustivel()
+carro.motor.ligar()
+print(carro.motor.estado)
+carro.motor.desligar()
+print(carro.motor.estado)
+carro.motor.acelerar()
+print(carro.motor.velocidade)
+carro.motor.verificar_combustivel()
 
 # Testes da transmissao
-carro.mudar_de_marcha()
-print(carro.marcha_atual)
+carro.transmissao.mudar_marcha()
+print(carro.transmissao.marcha_atual)
 
 # Testes do chassi
-carro.pintar()
-print(carro.cor)
+carro.chassi.pintar()
+print(carro.chassi.cor)
 
 # Testes das rodas
 for roda in carro.rodas:
