@@ -19,7 +19,7 @@ Apenas para iniciar os projetos deste repositório.
 
 ## Como executar
 
-Certifique-se de ter o Python 3.13 instalado. Para rodar qualquer script:
+Certifique-se de ter o Python 3.13 instalado. Para rodar a maioria dos arquivos:
 ```bash
 python nome_do_arquivo.py
 ```
