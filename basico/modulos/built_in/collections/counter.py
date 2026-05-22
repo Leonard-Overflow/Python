@@ -39,3 +39,6 @@ print(lista_1)
 print(lista_2)
 print(soma)
 print(sub)
+
+mult = lista1*2
+print(len(mult))

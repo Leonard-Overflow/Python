@@ -1,11 +1,11 @@
 from collections import defaultdict
-import time
+from time import time
 
 def verifica_tempo(funcao):
     def wrapper(*args, **kwargs):
-        inicio = time.time()
+        inicio = time()
         funcao(*args, **kwargs)
-        fim = time.time()
+        fim = time()
         tempo = fim - inicio
         infromacoes = [funcao.__name__, tempo]
         return infromacoes
