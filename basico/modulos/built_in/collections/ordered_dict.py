@@ -39,7 +39,7 @@ while True:
     print("3 - Excluir um site do historico")
     print("4 - Exibir historico")
     print("5 - Sair")
-    escolha = int(input("Escolha"))
+    escolha = int(input("Escolha: "))
 
     match escolha:
         case 1:
