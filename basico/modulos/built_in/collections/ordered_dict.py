@@ -27,8 +27,7 @@ class Cache:
     def exibir(self):
         print("\n--- Histórico ---")
         for i, (url, data) in enumerate(self.cache.items(), start=1):
-            print(f"[{i}] {url:<35} {data.strftime('%d/%m/%Y %H:%M:%S')}")
-        print()
+            print(f"[{i}] {url:<35} {data.strftime('%d/%m/%Y %H:%M:%S')}\n")
 
 cache = Cache()
 
