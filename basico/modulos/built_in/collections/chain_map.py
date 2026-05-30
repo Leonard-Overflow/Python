@@ -32,7 +32,7 @@ while True:
                          "5 - Criar uma funcao\n"
                          "6 - Criar uma variavel\n"
                          "7 - Executar funcao\n"
-                         "8 - Atualizar configuracao\n"
+                         "8 - Atualizar configuracoes\n"
                          "9 - Sair"))
 
     match resposta:
@@ -79,18 +79,32 @@ while True:
                     sleep(3)
                     print("Biblioteca instalada.")
             else:
-                lib = input("Digite o nome da biblioteca: ")
-                if lib in Builtin["bibliotecas_instaladas"]:
-                    print(f"A biblioteca {lib} ja esta instalada.")
+                lib = input("Digite o comando de instalacao\n")
+                if not lib.startswith("pip install "):
+                    if lib in Builtin["bibliotecas_instaladas"]:
+                        print(f"A biblioteca {lib} ja esta instalada.")
+                    else:
+                        print("instalando...")
+                        Builtin["bibliotecas_instaladas"].append(lib)
+                        sleep(3)
+                        print("Biblioteca instalada.")
                 else:
-                    print("instalando...")
-                    Builtin["bibliotecas_instaladas"].append(lib)
-                    sleep(3)
-                    print("Biblioteca instalada.")
+                    print("Erro. Use o comando pip install para instalar")
         case 4:
             pass
         case 5:
-            pass
+            nome = input("Insira o nome da funcao: ")
+            parametros = []
+            while True:
+                parametro = input("Insira o nome do parametro(enter para parar): ").strip().lower()
+                if parametro == "":
+                    break
+                parametros.append(parametro)
+            retorno = input("Qual o retorno da funcao?\n").lower().strip()
+            parametros = ", ".join(parametros)
+            lambda_str = f"lambda {parametros}: {retorno}"
+            funcao = eval(lambda_str)
+            Global["variaveis_funcoes"].append(funcao)
         case 6:
             nome = input("Qual o nome da variavel?\n").lower().strip()
             valor = float(input("Digite o valor da variavel: "))
