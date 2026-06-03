@@ -11,8 +11,7 @@ Global = {
     "nome" : "calculadora",
     "tipo" : "python",
     "bibliotecas_instaladas" : ["numpy", "pandas", "keras", "tensorflow"],
-    "variaveis_funcoes" : [[], []],
-    "decorators" : []
+    "variaveis_funcoes" : [[], []]
 }
 
 Builtin = {
@@ -29,12 +28,11 @@ while True:
                          "1 - Realizar uma conta\n"
                          "2 - Verifciar configuracoes\n"
                          "3 - Instalar novas bibliotecas\n"
-                         "4 - Criar um decorator\n"
-                         "5 - Criar uma funcao\n"
-                         "6 - Criar uma variavel\n"
-                         "7 - Executar funcao\n"
-                         "8 - Atualizar configuracoes\n"
-                         "9 - Sair\n"))
+                         "4 - Criar uma funcao\n"
+                         "5 - Criar uma variavel\n"
+                         "6 - Executar funcao\n"
+                         "7 - Atualizar configuracoes\n"
+                         "8 - Sair\n"))
 
     match resposta:
         case 1:
@@ -95,21 +93,19 @@ while True:
             else:
                 print("Insira uma resposta valida!")
         case 4:
-            pass
-        case 5:
             nome = input("Insira o nome da funcao: ")
             parametros = []
             while True:
                 parametro = input("Insira o nome do parametro(enter para parar): ").strip().lower()
                 if parametro == "":
                     break
-            parametros.append(parametro)
+                parametros.append(parametro)
             retorno = input("Qual o retorno da funcao?\n").lower().strip()
             parametros = ", ".join(parametros)
             lambda_str = f"lambda {parametros}: {retorno}"
             funcao = eval(lambda_str)
-            Global["variaveis_funcoes"][1].append(funcao)
-        case 6:
+            Global["variaveis_funcoes"][1].append((nome, funcao))
+        case 5:
             nome = input("Qual o nome da variavel?\n").lower().strip()
             tipo = input("Qual o tipo da variavel?\n").lower().strip()
 
@@ -131,11 +127,41 @@ while True:
 
             tupla_da_variavel = (nome, valor)
             Global["variaveis_funcoes"][0].append(tupla_da_variavel)
+        case 6:
+            print("---Funcoes---")
+            for i, (nome, function) in enumerate(Global["variaveis_funcoes"][1]):
+                print(f"{i}. {nome}")
+            resposta = input("Qual funcao voce quer executar")
+
+            from typing import Callable, Optional
+            funcao_encontrada = Optional[Callable] = None
+            for nome, funcao in Global["variaveis_funcoes"][1]:
+                if resposta == nome:
+                    funcao_encontrada = funcao
+                    break
+
+            if funcao_encontrada is None:
+                print(f"A funcao {resposta} nao existe!")
+            else:
+
+                import inspect
+
+                params = inspect.signature(funcao_encontrada).parameters
+                argumentos = []
+
+                for param in params:
+                    valor = input(f"Insira o valor para '{param}': ")
+                    try:
+                        valor = float(valor) if "." in valor else int(valor)
+                    except ValueError:
+                        pass
+                    argumentos.append(valor)
+
+                resultado = funcao_encontrada(*argumentos)
+                print(f"Resultado da funcao: {resultado}")
         case 7:
             pass
         case 8:
-            pass
-        case 9:
             break
         case _:
             print("opcao invalida!")
