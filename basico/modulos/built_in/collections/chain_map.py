@@ -133,8 +133,7 @@ while True:
                 print(f"{i}. {nome}")
             resposta = input("Qual funcao voce quer executar")
 
-            from typing import Callable, Optional
-            funcao_encontrada = Optional[Callable] = None
+            funcao_encontrada = None
             for nome, funcao in Global["variaveis_funcoes"][1]:
                 if resposta == nome:
                     funcao_encontrada = funcao
@@ -143,24 +142,47 @@ while True:
             if funcao_encontrada is None:
                 print(f"A funcao {resposta} nao existe!")
             else:
-
                 import inspect
-
-                params = inspect.signature(funcao_encontrada).parameters
+                parametros = inspect.signature(funcao_encontrada).parameters
                 argumentos = []
+                nao_nulo = 1
 
-                for param in params:
-                    valor = input(f"Insira o valor para '{param}': ")
-                    try:
-                        valor = float(valor) if "." in valor else int(valor)
-                    except ValueError:
-                        pass
-                    argumentos.append(valor)
+                while nao_nulo:
+                    nao_nulo = 0
+                    for parametro in parametros:
+                        valor = input(f"Insira o valor para '{parametro}': ")
+
+                        if valor == None:
+                            print("Insira um valor valido!")
+                            argumentos.clear()
+                            nao_nulo = 1
+                            break
+                        try:
+                            valor = float(valor) if "." in valor else int(valor)
+                        except ValueError:
+                            pass
+                        argumentos.append(valor)
 
                 resultado = funcao_encontrada(*argumentos)
                 print(f"Resultado da funcao: {resultado}")
         case 7:
-            pass
+            resposta = input("Voce quer atualizar as configuracoes do Global ou do Built-in?\n").lower().strip()
+
+            if resposta == "Global":
+                nome = input("Insira o novo nome do arquivo: ")
+                Global["nome"] = nome
+            elif resposta == "Built-in":
+                resposta = input("O que planeja atuallizar, versao ou gerenciador de pacotes?: ")
+                if resposta == "gerenciador":
+                    novo_gerenciador = input("Digite o nome do novo gerenciador: ")
+                    Global["gerenciador_de_pacotes"] = novo_gerenciador
+                elif resposta == "versao":
+                    nova_versao = input("Digite qual a nova versao do python: ")
+                    Global["versao"] = nova_versao
+                else:
+                    print("Insira um valor valido!")
+            else:
+                print("Insira um valor valido!")
         case 8:
             break
         case _:
