@@ -8,7 +8,6 @@ while True:
                   "2 - Ver a lista de eventos\n"
                   "3 - Sair\n"
                   "")
-
     match opcao:
         case "1":
             data = input("Insira a data do evento: ")
