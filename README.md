@@ -1,13 +1,12 @@
 ![Python](https://img.shields.io/badge/Python-3.13-blue?logo=python)
 # Python OOP
 ## Objetivo
-Esse repositório guarda meus aprendizados em Python incluindo os tópicos de:
+Esse repositório guarda meus aprendizados em Python incluindo os tópicos iniciais de:
 - Básico
 - OOP
-- Async
-- Ambientes
 
-Apenas para iniciar os projetos deste repositório.
+Estou usando como guia o [roadmap](https://roadmap.sh/python) do roadmap.sh além de 
+referências externas para outros temas não abordados no roadmap.
 
 ## Tecnologias utilizadas
 
