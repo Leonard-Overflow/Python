@@ -1,4 +1,14 @@
-{
-  "nome": [],
-  "senha": []
-}
+[
+    {
+        "nome": "leonardo",
+        "senha": "123"
+    },
+    {
+        "nome": "rafael",
+        "senha": "546"
+    },
+    {
+        "nome": "castro",
+        "senha": "789"
+    }
+]
