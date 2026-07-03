@@ -1,7 +1,5 @@
 import math
 
-
-
 def meu_decorator(func):
     def wrapper(*args, **kwargs):
         a, b, c = args
