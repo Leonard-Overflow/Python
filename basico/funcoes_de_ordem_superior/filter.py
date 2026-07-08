@@ -1,11 +1,13 @@
-folha_de_pagamento = {
-    "Marcos" : 4500,
-    "Rafael" : 3500,
-    "Daniel" : 2000,
-    "Pedro" : 4500,
-    "Leonardo" : 3500
-}
+# Estrutura filter(funcao, iteravel)
 
-gerentes = [x for x in list(filter(lambda a: a > 4000, folha_de_pagamento.values()))]
+# Com funcao anonima
+lista = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20]
+pares = filter(lambda numero : numero % 2 == 0, lista)
+print(list(pares))
 
-print(gerentes)
+# Com funcoes pre escrita
+def divisivel_tres(numero):
+    return numero % 3 == 0
+
+multiplos_tres = filter(divisivel_tres ,lista)
+print(list(multiplos_tres))
