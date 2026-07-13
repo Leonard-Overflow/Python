@@ -1,3 +1,5 @@
+# Retorna qualquer coisa, serve apenas para transformar o valor do iteravel
+
 folha_de_pagamento = {
     "Marcos" : 4500,
     "Rafael" : 3500,
