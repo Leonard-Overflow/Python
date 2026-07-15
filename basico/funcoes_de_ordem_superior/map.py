@@ -22,4 +22,4 @@ lista_2 = [6, 7, 8, 9, 10]
 soma = list(map(somar_listas, lista_1, lista_2)) # duas listas -> funcao recebe 2 parametros
 print(soma)
 
-# map() retorna um obj map e calcula os valores conforme itera sobre o iteravel. Processamento lazy, so demanda
+# map() retorna um obj map e calcula os valores conforme itera sobre o iteravel. Processamento lazy, sob demanda
