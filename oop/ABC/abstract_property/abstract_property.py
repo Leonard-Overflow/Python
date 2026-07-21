@@ -1,4 +1,5 @@
 from abc import ABC, abstractmethod
+from collections import Counter
 
 class ColunaDataset(ABC):
     """
@@ -62,3 +63,9 @@ class ColunaCatgorica(ColunaDataset):
         return "str"
 
     def resumo_estatistico(self):
+        valores = Counter(self.valores)
+        moda = max(valores.values())
+        unicos = []
+        for i in range(len(valores)):
+            if valores[i] == 1:
+                unicos.append(valores[i])

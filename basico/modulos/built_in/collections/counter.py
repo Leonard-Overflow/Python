@@ -10,7 +10,7 @@ pedidos = Counter(lista_de_pedidos)
 print(letras["l"])
 print(pedidos)
 
-# Métodos
+# Metodos
 
 print(pedidos.most_common(2))
 print(list(pedidos.elements()))
@@ -20,7 +20,7 @@ print(letras)
 letras.subtract("over")
 print(letras)
 
-# Operações
+# Operacoes
 
 lista1 = ["a", "a", "a", "b", "a", "b", "b", "e", "a", "a", "c", "a", "a", "c", "a", "d", "d",]
 lista2 = ["z", "z", "z", "y", "y", "w", "w", "z", "y", "y", "z", "w", "w", "x", "x", "a", "a",]
@@ -30,7 +30,7 @@ lista_2 = Counter(lista2)
 soma = lista_1 + lista_2
 sub = lista_1 - lista_2
 
-e = lista_1 & lista_2 # Mínimo de cada chave
+e = lista_1 & lista_2 # Minimo de cada chave
 ou = lista_1 | lista_2 # Máximo de cada chave
 
 print(e)
