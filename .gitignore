@@ -12,6 +12,14 @@ venv/
 # PyCharm
 .idea/
 
-# Pytest
-.pytest_cache/
-.coverage
+# Banco de dados SQLite
+*.db
+*.sqlite
+*.sqlite3
+*.db3
+
+# Arquivos temporários que o SQLite cria durante o uso do banco
+*.db-journal
+*.sqlite-journal
+*.db-wal
+*.db-shm
