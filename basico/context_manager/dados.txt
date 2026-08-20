@@ -1,0 +1,6 @@
+Leonardo, leo@email.com
+Rafael, rafa@email.com
+Lucas, luc@gmail.com
+Felipe, fel@hotmail.com
+Fernando, fer@email.com
+Pedro, pedro@gmail.com

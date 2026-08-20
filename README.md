@@ -1,7 +1,7 @@
 ![Python](https://img.shields.io/badge/Python-3.13-blue?logo=python)
-# Python OOP
+# Python
 ## Objetivo
-Esse repositório guarda meus aprendizados em Python incluindo os tópicos iniciais de:
+Esse repositório guarda meus aprendizados em Python com pasta dedicadas a cada topico. POr exemplo:
 - Básico
 - OOP
 
@@ -18,7 +18,7 @@ referências externas para outros temas não abordados no roadmap.
 
 ## Como executar
 
-Certifique-se de ter o Python 3.13 instalado. Para rodar a maioria dos arquivos:
+Certifique-se de ter o Python 3.13 instalado e use:
 ```bash
 python nome_do_arquivo.py
 ```
