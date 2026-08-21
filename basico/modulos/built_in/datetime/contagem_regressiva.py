@@ -1,6 +1,9 @@
-from datetime import datetime as dt
+import datetime as dt
 
-lista_de_eventos = []
+futuro = dt.date(2026, 9, 12)
+presente = dt.date(2026, 8, 21)
+passado= dt.date(2026, 8, 20)
+lista_de_eventos = [("Futuro", futuro), ("Presente", presente), ("Passado", passado)]
 
 while True:
     resposta = input("O que deseja fazer?\n"
@@ -13,15 +16,24 @@ while True:
             padrao = "%d/%m/%Y"
             nome = input("Digite o nome do evento: ")
             data = input("Digite a data do evento: ")
-            data = dt.strptime(data, padrao)
+            data.replace("/", "-")
+            data = dt.datetime.strptime(data, padrao).date()
             tupla_evento = (nome, data)
             if tupla_evento not in lista_de_eventos:
                 lista_de_eventos.append(tupla_evento)
             else:
                 print("Ja ha um evento nesse dia")
         case "2":
-            for i, evento in enumerate(lista_de_eventos):
-                print(f"{i} - {evento[0]} na data {evento[1]}\n")
+            for evento in lista_de_eventos:
+
+                delta = evento[1] - dt.date.today()
+
+                if evento[1] == dt.date.today():
+                    print(f"O evento {evento[0]} e hoje!!!\n")
+                elif delta.total_seconds() > 0:
+                    print(f" {evento[0]} : faltam {delta.days} dia(s) para o evento\n")
+                else:
+                    print(f"O evento: {evento[0]} ja passou\n")
         case "3":
             break
         case _:
