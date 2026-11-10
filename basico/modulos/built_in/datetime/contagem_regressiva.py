@@ -29,11 +29,11 @@ while True:
                 delta = evento[1] - dt.date.today()
 
                 if evento[1] == dt.date.today():
-                    print(f"O evento {evento[0]} e hoje!!!\n")
+                    print(f"O evento {evento[0]} e hoje!!!")
                 elif delta.total_seconds() > 0:
-                    print(f" {evento[0]} : faltam {delta.days} dia(s) para o evento\n")
+                    print(f" {evento[0]} : faltam {delta.days} dia(s) para o evento")
                 else:
-                    print(f"O evento: {evento[0]} ja passou\n")
+                    print(f"O evento: {evento[0]} ja passou")
         case "3":
             break
         case _:
